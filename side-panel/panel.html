@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Containers</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div id="app">
+    <header class="panel-header">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+        <h1>Manage Containers</h1>
+        <span class="version-tag">v4.4</span>
+      </div>
+      <button id="btn-add" class="btn-icon" title="New Container">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </header>
+
+    <div id="tab-info" class="info-section" style="display:none">
+      <div class="info-row"><span class="label">Current page:</span><span id="info-url" class="url-text"></span></div>
+      <div class="info-row"><span class="label">Container:</span><span id="info-cname" class="value-text">None</span></div>
+      <div class="info-row"><span class="label">Always open in:</span><span id="info-always" class="value-text">None</span></div>
+      <div class="info-actions">
+        <button id="btn-remove-tab" class="btn-secondary btn-sm">Remove from Container</button>
+        <button id="btn-clear-always" class="btn-secondary btn-sm">Clear Always-Open Rule</button>
+      </div>
+    </div>
+
+    <div class="section-title">Containers</div>
+    <div id="container-list"></div>
+
+    <div class="section-title">Quick Open in Container</div>
+    <div class="quick-open">
+      <input type="text" id="q-url" placeholder="URL (e.g. web.whatsapp.com)" />
+      <select id="q-container"></select>
+      <button id="btn-q-open" class="btn-primary">Open</button>
+    </div>
+
+    <div class="section-title">Always-Open Rules</div>
+    <div id="always-rules"></div>
+
+    <!-- Info Section -->
+    <div class="info-contact">
+      <div class="info-contact-title">Developer Info</div>
+      <div class="info-contact-row">
+        <span class="info-label">Email:</span>
+        <a href="mailto:worldof01st@gmail.com" class="info-link">worldof01st@gmail.com</a>
+      </div>
+      <div class="info-contact-row">
+        <span class="info-label">Support (TON):</span>
+        <span class="info-wallet" id="wallet-addr" title="Click to copy">UQAykVgirxEyv8cgHAgpPGXwzUYFwviRZWS1QMGwx3KDHrsV</span>
+      </div>
+      <div class="info-note">If you are satisfied with this product, support me</div>
+      <div class="info-note">Click wallet address to copy</div>
+    </div>
+
+    <div class="tip-box">
+      <strong>v4.4 Features:</strong><br>
+      - Opt-in colored tab bar per container<br>
+      - Debugger-based cookie isolation (CDP)<br>
+      - Storage isolation (localStorage, IndexedDB, CacheStorage)<br>
+      - Draggable badge on each page<br>
+      - Address bar: type <code>mc &lt;url&gt;</code> to open in container<br>
+      - Right-click menu for quick container access
+    </div>
+  </div>
+
+  <div id="modal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h2 id="modal-title">New Container</h2>
+      <input type="hidden" id="m-id" />
+      <div class="field"><label>Name</label><input type="text" id="m-name" placeholder="e.g. WhatsApp 1" /></div>
+      <div class="field"><label>Color</label><div id="m-colors" class="picker-row"></div></div>
+      <div class="field"><label>Icon</label><div id="m-icons" class="picker-row"></div></div>
+      <div class="field field-checkbox">
+        <label class="checkbox-label">
+          <input type="checkbox" id="m-show-tab-color" />
+          <span class="checkbox-custom"></span>
+          <span>Color tab bar</span>
+        </label>
+        <span class="checkbox-hint">Shows a colored bar above the tab matching the container color</span>
+      </div>
+      <div class="modal-btns">
+        <button id="m-cancel" class="btn-secondary">Cancel</button>
+        <button id="m-delete" class="btn-danger" style="display:none">Delete</button>
+        <button id="m-ok" class="btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

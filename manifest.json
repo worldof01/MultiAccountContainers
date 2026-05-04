@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "Multi Account Containers",
+  "version": "4.4.0",
+  "description": "Firefox-style containers for Edge/Chrome with colored tabs + session isolation. Type 'mc ' in address bar for quick access.",
+  "permissions": [
+    "cookies",
+    "tabs",
+    "storage",
+    "contextMenus",
+    "sidePanel",
+    "favicon",
+    "alarms",
+    "omnibox",
+    "debugger",
+    "tabGroups"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "side-panel/panel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/storage-isolator.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/cookie-bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/container-indicator.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "omnibox": {
+    "keyword": "mc"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
