@@ -36,4 +36,21 @@ The extension icon should now appear in your browser toolbar. You're ready to us
 
 (Describe how to use your extension – e.g., click the icon, create new containers, switch between them, etc.)
 
-## Project Structure
+
+## Requirements
+
+- Any Chromium‑based browser (Chrome 88+, Edge 88+, Brave, Opera, etc.)
+- No additional dependencies
+
+## License
+
+[MIT](LICENSE)
+
+## Developer Info
+
+**Email:** worldof01st@gmail.com
+
+**Support (TON):**  
+`UQAykVgirxEyv8cgHAgpPGXwzUYFwviRZWS1QMGwx3KDHrsV`
+
+If you are satisfied with this product, support me.
