@@ -32,10 +32,6 @@ The extension icon should now appear in your browser toolbar. You're ready to us
 - Quick tab switching and grouping
 - Lightweight, built on Chromium’s multi‑process architecture
 
-## Usage
-
-(Describe how to use your extension – e.g., click the icon, create new containers, switch between them, etc.)
-
 
 ## Requirements
 
